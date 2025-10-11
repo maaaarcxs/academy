@@ -1,0 +1,43 @@
+header{
+    margin: 15px 0;
+
+    
+    .header__items{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+
+
+
+body{
+            background-color: lightgray;
+        }
+
+
+.students_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.student_card{
+    border: black 1px solid;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 7px 7px 11px 11px rgba(32, 29, 29, 0.13);
+}
+
+
+.student_logo{
+    max-width: 230px;
+    width: 100%;
+    max-height: 230px;
+    max-height: 100%;
+}
+
+

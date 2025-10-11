@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Создание студента{% endblock  %}
+{% block header %}Создать студента{% endblock %}
+
+{% load static %}
+    
+{% block fields %}
+    <div class='student_form'> 
+        <form action="{% url "create_student" %}" method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% comment %} <div class='student_input'>
+                <label for="name">Name:</label>
+                <input type="text" name='name'>
+            </div>
+
+            <div class='student_input'>
+                <label for="last_name">Last name:</label>
+                <input type="text" name='last_name'>
+            </div>
+
+            <div class='student_input'>
+                <label for="age">Age:</label>
+                <input type="number" name='age'>
+            </div>
+
+            <div class='student_input'>
+                <label for="phone_number">Phone number:</label>
+                <input type="text" name='phone_number'>
+            </div>
+
+            <div class='student_input'>
+                <label for="avatar">Avatar:</label>
+                <input type="file" name='avatar'>
+            </div>
+
+            <div class='student_input'>
+                <select name="group" id="">
+                    {% for group in groups %}
+                    <option value="{{ group.id }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div> {% endcomment %}
+
+            <button type="submit">Создать</button>
+
+        </form>
+    </div> 
+{% endblock  %}

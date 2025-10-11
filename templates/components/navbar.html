@@ -1,0 +1,24 @@
+{% load static %}
+
+<header>
+    <div>
+
+        <a href="{% url 'main' %}">
+            <img src="{% static "svg/logo.4b5280eebe95.svg" %}" alt="">
+        </a>
+    </div>
+
+    <nav>
+        <a href="{% url 'main' %}">Home</a>
+        <a href="#">Blog</a>
+        <a href="#">About</a>
+        <a href="#">Contacts</a>
+    </nav>
+
+    <div>
+        <form action="{% url 'main' %}" method="GET">
+            <input type="text" name="search" value="{{ search }}">
+            <input type="submit" value='Готов'>
+        </form>
+    </div>
+</header>

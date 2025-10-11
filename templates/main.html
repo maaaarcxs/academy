@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+
+{% block title %}Создание студента{% endblock  %}
+{% block header %}Создать студента{% endblock %}
+
+{% load static %}
+{% block fields %}
+
+    <header> 
+        <div class='header__items'>
+            <a href="">
+                About us
+            </a>
+
+            <h2>PROlab Academy</h2>
+
+            <a href="">
+                About IT
+            </a>
+
+            <a href="">
+                PROlab Agency
+            </a>
+        </div>
+    </header>
+
+        <h2>Students</h2>
+
+        <div>
+            <h2>Filter Students</h2>
+
+            <form method="GET">
+                {% csrf_token %}
+                {{ filter.form.as_p }}
+                <div class="student_form_button">
+                    <button>filter</button>
+                </div>
+            </form>
+        </div>
+
+<div class="students_container">
+    {% for student in students %}
+    <div class='student_card'>
+        <div>
+            <a href=""><img class='student_logo' src="{{ student.avatar.url }}" alt="">
+            </a>
+        </div>
+        <div>name: {{ student.name }}</div>
+        <div>group: {{student.group.name}}</div>
+        <div>email: {{student.email}}</div>
+        <div>phone number: {{student.phone_number}}</div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class='paggination'>
+    {% if is_paginated %}
+    <div class="pagination">
+        <div class="pagination_btns">
+            {% if students.has_previous %}
+            <a class="page_link" href="?page={{ students.previous_page_number }}"><</a>
+            {% endif %}
+
+            {% for i in students.paginator.page_range %}
+                {% if students.number == i %}
+                <span class="page_link">{{ i }}</span>
+                {% else %}
+                <a class="page_link" href="?page={{ i }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if students.has_next %}
+                <a class="page_link" href="?page={{ students.next_page_number }}">></a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock fields %}
+

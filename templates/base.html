@@ -1,0 +1,29 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+</head>
+<body>
+
+    <h1>{%block header%}{% endblock %}</h1>
+
+    <div class='student_form'>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            {% block fields %}{% endblock %}
+
+            <div class='submit_button'>
+                <input type="submit" value="{{ button_text }}">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

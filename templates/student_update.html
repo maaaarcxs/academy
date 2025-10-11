@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Редактирование студента{% endblock %}
+{% block header %}Изменить студента{% endblock %}
+
+{% load static %}
+
+    {% block fields %}
+
+        <div class='student_form'>
+            <form action="{% url "student_update" id=student.id %}" method="POST" enctype="multipart/form-data">
+
+                <div class='student_input'>
+                    <label for="name">Name</label>
+                    <input type="text" name='name' value="{{ student.name }}">
+                </div>
+
+                <div class='student_input'>
+                    <label for="last_name">Last name:</label>
+                    <input type="text" name='last_name' value="{{ student.last_name }}">
+                </div>
+
+                <div class='student_input'>
+                    <label for="age">Age:</label>
+                    <input type="number" name='age' value="{{ student.age }}">
+                </div>
+
+                <div class='student_input'>
+                    <label for="email">Email:</label>
+                    <input type="text" name='email' value="{{ student.email }}">
+                </div>
+
+                <div class='student_input'>
+                    <label for="phone_number">Phone number:</label>
+                    <input type="text" name='phone_number' value="{{ student.phone_number }}">
+                </div>
+
+                <div class='student_input'>
+                    <label>Аватарка:</label>
+                    {% if student.avatar %}
+                        <img src="{{ student.avatar.url }}" width="150" alt="Текущий аватар">
+                    {% endif %}
+                    <input type="file" name="avatar">
+                </div>
+
+                <div class='student_input'>
+                    <label for="group">Group</label>
+                    <select name="group" id="">
+                    {% comment %} <option value="{{student.group.id}}">{{ student.group }}</option> {% endcomment %}
+                        {% for group in groups %}
+                            <option value="{{ group.id }}" {% if student.group.id == group.id %}selected{% endif %}>{{ group.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class='submit_button'>
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Информация о студентах</h1>
+
+    <div style='display: flex; justify-content: center;, gap: 10px;' class='student_info'>
+
+        <div style='max-width: 130px; width: 100%;' class='student1'>
+            {{ student.name }}
+            {{ student.age }}
+            {{ student.email }}
+            {{ student.group.name }}
+            {{ student.phone_number }}
+            {{ student.description }}
+        </div>
+        
+    </div>
+    
+</body>
+</html>
