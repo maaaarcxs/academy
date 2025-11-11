@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Информация о студентах</h1>
+{% extends "base.html" %}
+
+{% block title %}Редактирование студента{% endblock %}
+{% block header %}Изменить студента{% endblock %}
+
+{% load static %}
+
+{% block fields %}
 
     <div class='student_container'>
         {% for student in students %}
@@ -33,6 +32,5 @@
             </div>
         {% endfor %}
     </div>
-    
-</body>
-</html>
+
+{% endblock fields %}

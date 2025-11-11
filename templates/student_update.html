@@ -9,6 +9,7 @@
 
         <div class='student_form'>
             <form action="{% url "student_update" id=student.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
 
                 <div class='student_input'>
                     <label for="name">Name</label>
