@@ -10,8 +10,8 @@ class StudentForm(forms.Form):
     phone_number = forms.CharField(label="Номер телефона")
     group = forms.ModelChoiceField(label="Группа", queryset=Group.objects.all())
     picture = forms.ImageField(label="Фото профиля", required=False)
-    # join_date = forms.DateField(label="Дата присоединения: ")
-    # updated_time = forms.DateTimeField(label="Дата обновления")
+    join_date = forms.DateField(label="Дата присоединения: ")
+    updated_time = forms.DateTimeField(label="Дата обновления")
     is_active = forms.BooleanField(label="Активен", required=False)
     tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
 

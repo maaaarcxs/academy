@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Информация о студентах</h1>
+
+    <div class='student_container'>
+        {% for student in students %}
+            <div class='student_card'>
+                <div>
+                    <a href="{% url "student_details" id=student.id %}">
+                        {% if student.avatar %}
+                            <img src="{{ student.avatar.url }}" alt="student.name">
+                        {% else %}
+                            No avatar
+                        {% endif %}
+                    </a>
+                </div>
+                <div>имя: {{ student.name }}</div>
+                <div>фамилия: {{ student.last_name }}</div>
+                <div>возраст: {{ student.age }}</div>
+                <div>email: {{ student.email }}</div>
+                <div>группа: {{ student.group.name }}</div>
+                <div>телефон: {{ student.phone_number }}</div>
+                <div>описание: {{ student.description }}</div>
+                {% comment %} <div>
+                    <a href="{% url "student_detail" id=student.id method=delete %}">удалить</a>
+                </div> {% endcomment %}
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

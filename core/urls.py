@@ -18,14 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
-from students.views import main, student_details, create_student, student_update, student_delete
+from students.views import main, student_details, create_student, student_update, student_delete, student_details, StudentView, StudentDetailView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main, name='main'),
-    path('students/<int:id>/', student_details, name='student_detail'),
+    path ("", StudentView.as_view(), name='main'),
+    # path('', main, name='main'),
+    path('students/<int:id>/', StudentDetailView.as_view(), name='students_details'),
     path('create-student/', create_student, name='create_student'),
     path('students/<int:id>/update/', student_update, name='student_update'),
     path('students/<int:id>/delete/', student_delete, name='student_delete')
